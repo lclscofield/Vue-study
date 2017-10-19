@@ -11,7 +11,8 @@
           @remove="todos.splice(index, 1)"
       >
         {{todoItem.title}}
-        <button v-on:click="$emit('remove')">X</button></li>
+        <button @click="$emit('remove')">X</button>
+      </li>
     </ul>
   </div>
 </template>
@@ -41,7 +42,8 @@ export default {
     };
   },
   methods: {
-    addNewTodo: () => {
+    addNewTodo: function() {
+      console.log(this);
       this.todos.push({
         id: this.nextTodoId++,
         title: this.newTodoText
