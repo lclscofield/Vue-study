@@ -1,24 +1,34 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld/>
+    <p>{{text}}</p>
+    <!-- <haha :nana="shabi" v-bind="todo"></haha> -->
+    <todo></todo>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import HelloWorld from "./components/HelloWorld";
+import Haha from "./components/Haha";
+import Todo from "./components/Todo";
 
 export default {
-  name: 'app',
+  name: "App",
   components: {
-    HelloWorld
+    HelloWorld,
+    Haha,
+    Todo
+  },
+  data: () => {
+    return {
+      text: "你好"
+    };
   }
-}
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
