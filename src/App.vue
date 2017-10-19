@@ -1,38 +1,40 @@
 <template>
-  <div id="app">
-    <p>{{text}}</p>
-    <!-- <haha :nana="shabi" v-bind="todo"></haha> -->
-    <todo></todo>
-  </div>
+	<div id="app">
+		<h1>My Todo App!</h1>
+		<TodoList/>
+	</div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld";
-import Haha from "./components/Haha";
-import Todo from "./components/Todo";
+import TodoList from "./components/TodoList.vue";
 
 export default {
-  name: "App",
   components: {
-    HelloWorld,
-    Haha,
-    Todo
-  },
-  data: () => {
-    return {
-      text: "你好"
-    };
+    TodoList
   }
 };
 </script>
 
 <style>
+/* @import "./variables.scss"; */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 #app {
+  max-width: 400px;
+  margin: 0 auto;
+  line-height: 1.4;
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: #32485f;
+}
+
+h1 {
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
