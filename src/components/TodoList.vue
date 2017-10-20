@@ -3,7 +3,7 @@
 		<BaseInputText  
 			v-model="newTodoText"
 			placeholder="New todo"
-			@keydown.enter="addTodo"
+			@keydown.enter.native="addTodo"
 		/>
 		<ul v-if="todos.length">
 			<TodoListItem
@@ -50,8 +50,7 @@ export default {
     };
   },
   methods: {
-    addTodo(value) {
-      this.newTodoText = value;
+    addTodo() {
       const trimmedText = this.newTodoText.trim();
       if (trimmedText) {
         this.todos.push({
