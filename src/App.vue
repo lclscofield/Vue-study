@@ -1,8 +1,10 @@
 <template>
 	<div id="app">
-		<Topbar></Topbar>
-    <Editor></Editor>
-    <Preview></Preview>
+		<Topbar class="topbar"></Topbar>
+    <main>
+      <Editor class="editor"></Editor>
+      <Preview class="preview"></Preview>
+    </main>
 	</div>
 </template>
 
@@ -19,6 +21,25 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+#app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
+.topbar {
+  background: green;
+}
+
+main {
+  display: flex;
+  flex: 1;
+  > .editor {
+    width: 20em;
+  }
+  > .preview {
+    flex: 1;
+  }
+}
 </style>
