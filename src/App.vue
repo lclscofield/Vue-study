@@ -1,40 +1,24 @@
 <template>
 	<div id="app">
-		<h1>My Todo App!</h1>
-		<TodoList/>
+		<Topbar></Topbar>
+    <Editor></Editor>
+    <Preview></Preview>
 	</div>
 </template>
 
 <script>
-import TodoList from "./components/TodoList.vue";
-
+import Topbar from "./components/Topbar";
+import Editor from "./components/EDITOR";
+import Preview from "./components/Preview";
 export default {
   components: {
-    TodoList
+    Topbar,
+    Editor,
+    Preview
   }
 };
 </script>
 
 <style>
-/* @import "./variables.scss"; */
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-#app {
-  max-width: 400px;
-  margin: 0 auto;
-  line-height: 1.4;
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #32485f;
-}
-
-h1 {
-  text-align: center;
-}
 </style>
