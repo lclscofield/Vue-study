@@ -138,7 +138,7 @@ export default {
         }
       }
       .el-button {
-        margin: 5px;
+        margin: 10px;
       }
     }
   }
