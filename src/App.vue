@@ -9,16 +9,16 @@
 </template>
 
 <script>
-import Topbar from "./components/Topbar";
-import Editor from "./components/EDITOR";
-import Preview from "./components/Preview";
+import Topbar from './components/Topbar'
+import Editor from './components/EDITOR'
+import Preview from './components/Preview'
 export default {
   components: {
     Topbar,
     Editor,
     Preview
   }
-};
+}
 </script>
 
 <style lang="scss">
