@@ -11,33 +11,10 @@
     </nav>
     <ol class="panes">
       <li :class="{active: currentTab === 0}">
-        <h2>个人信息</h2>
-        <el-form>
-          <el-form-item label="姓名">
-            <el-input v-model="profile.name"></el-input>
-          </el-form-item>
-          <el-form-item label="出身年月">
-            <el-input v-model="profile.birth"></el-input>
-          </el-form-item>
-          <el-form-item label="城市">
-            <el-input v-model="profile.city"></el-input>
-          </el-form-item>
-        </el-form>
+        <ProfileEditor :profile="profile"></ProfileEditor>
       </li>
       <li :class="{active: currentTab === 1}">
-        <h2>工作经历</h2>
-        <div class="work">
-          <el-form v-for="(work, index) in workHistory" :key="index">
-            <el-form-item label="公司">
-              <el-input v-model="work.company"></el-input>
-            </el-form-item>
-            <el-form-item label="工作内容">
-              <el-input type="textarea" :rows="5" v-model="work.content"></el-input>
-            </el-form-item>
-            <i class="el-icon-circle-close-outline" @click="removeWorkHistory(index)"></i>
-          </el-form>
-          <el-button type="primary" icon="el-icon-circle-plus-outline" round @click="addWorkHistory"></el-button>
-        </div>
+        <WorkHistoryEditor :workHistory="workHistory"></WorkHistoryEditor>
       </li>
       <li :class="{active: currentTab === 2}">
         <h2>学习经历</h2>
@@ -56,7 +33,10 @@
 </template>
 
 <script>
+import ProfileEditor from './ProfileEditor'
+import WorkHistoryEditor from './WorkHistoryEditor'
 export default {
+  components: { ProfileEditor, WorkHistoryEditor },
   data() {
     return {
       currentTab: 0,
@@ -76,14 +56,7 @@ export default {
       workHistory: [{ company: '', content: '' }]
     }
   },
-  methods: {
-    addWorkHistory() {
-      this.workHistory.push([{ company: '', content: '' }])
-    },
-    removeWorkHistory(index) {
-      this.workHistory.splice(index, 1)
-    }
-  }
+  methods: {}
 }
 </script>
 
@@ -125,20 +98,6 @@ export default {
       &.active {
         display: block;
         transition: display 0.5s;
-      }
-    }
-    .work {
-      .el-form {
-        position: relative;
-        .el-icon-circle-close-outline {
-          position: absolute;
-          top: 12px;
-          right: 0;
-          cursor: pointer;
-        }
-      }
-      .el-button {
-        margin: 10px;
       }
     }
   }
