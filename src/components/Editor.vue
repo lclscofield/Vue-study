@@ -11,32 +11,31 @@
     </nav>
     <ol class="panes">
       <li :class="{active: currentTab === 0}">
-        <ProfileEditor :profile="profile"></ProfileEditor>
+        <ArrayEditor :items="message" :title="'个人信息'" :labels="{name: '名字', birth: '出身年月', city: '城市'}" :seen="false"></ArrayEditor>
       </li>
       <li :class="{active: currentTab === 1}">
-        <WorkHistoryEditor :workHistory="workHistory"></WorkHistoryEditor>
+        <ArrayEditor :items="workHistory" :title="'工作经历'" :labels="{company:'公司', content:'工作内容'}" :seen="true"></ArrayEditor>
       </li>
       <li :class="{active: currentTab === 2}">
-        <h2>学习经历</h2>
+        <ArrayEditor :items="studyHistory" :title="'学习经历'" :labels="{school:'学校', duration:'学习时间', degree:'学位'}" :seen="true"></ArrayEditor>
       </li>
       <li :class="{active: currentTab === 3}">
-        <h2>项目经历</h2>
+        <ArrayEditor :items="projects" :title="'项目经历'" :labels="{name:'项目名称', content:'项目内容'}" :seen="true"></ArrayEditor>
       </li>
       <li :class="{active: currentTab === 4}">
-        <h2>获奖情况</h2>
+        <ArrayEditor :items="awards" :title="'获奖情况'" :labels="{name:'获奖详情'}" :seen="true"></ArrayEditor>
       </li>
       <li :class="{active: currentTab === 5}">
-        <h2>联系方式</h2>
+        <ArrayEditor :items="call" :title="'联系方式'" :labels="{phone:'电话', qq:'QQ', email:'邮件'}" :seen="false"></ArrayEditor>
       </li>
     </ol>
   </div>
 </template>
 
 <script>
-import ProfileEditor from './ProfileEditor'
-import WorkHistoryEditor from './WorkHistoryEditor'
+import ArrayEditor from './ArrayEditor'
 export default {
-  components: { ProfileEditor, WorkHistoryEditor },
+  components: { ArrayEditor },
   data() {
     return {
       currentTab: 0,
@@ -48,12 +47,12 @@ export default {
         'jiangbei01',
         '3-copy'
       ],
-      profile: {
-        name: '',
-        birth: '',
-        city: ''
-      },
-      workHistory: [{ company: '', content: '' }]
+      message: [[{ name: '', birth: '', city: '' }]],
+      workHistory: [[{ company: '' }, { content: '' }]],
+      studyHistory: [[{ school: '', duration: '', degree: '' }]],
+      projects: [[{ name: '' }, { content: '' }]],
+      awards: [[{}, { name: '' }]],
+      call: [[{ phone: '', qq: '', email: '' }]]
     }
   },
   methods: {}
