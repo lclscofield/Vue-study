@@ -4,17 +4,17 @@
     <div class="work">
       <el-form v-for="(item, index) in items" :key="index">
         <el-form-item :label="labels[key]" v-for="(key, index) in keys1" :key="index">
-          <el-input v-model="item[0][key]" @input="shareData"></el-input>
+          <el-input v-model="item[0][key]" @input="touchShare"></el-input>
         </el-form-item>
         <div v-if="item[1]">
           <el-form-item :label="labels[key]" v-for="(key, index) in keys2" :key="index">
-            <el-input type="textarea" :rows="5" v-model="item[1][key]" @input="shareData"></el-input>
+            <el-input type="textarea" :rows="5" v-model="item[1][key]" @input="touchShare"></el-input>
           </el-form-item>
         </div>
-        <i v-if="seen" class="el-icon-circle-close-outline" @click="removeitems(index)"></i>
+        <i v-if="seen" class="el-icon-circle-close-outline" @click="removeItems(index)"></i>
         <hr v-if="seen">
       </el-form>
-      <el-button v-if="seen" type="primary" icon="el-icon-circle-plus-outline" round @click="additems"></el-button>
+      <el-button v-if="seen" type="primary" icon="el-icon-circle-plus-outline" round @click="addItems"></el-button>
     </div>
   </div>
 </template>
@@ -31,7 +31,7 @@ export default {
     }
   },
   methods: {
-    additems() {
+    addItems() {
       let arr = [{}]
       this.keys1.map(key => {
         arr[0][key] = ''
@@ -44,11 +44,11 @@ export default {
       }
       this.items.push(arr)
     },
-    removeitems(index) {
+    removeItems(index) {
       this.items.splice(index, 1)
     },
-    shareData() {
-      this.$root.bus.$emit('shareData', this.items)
+    touchShare() {
+      this.$emit('touchShareData', null)
     }
   }
 }

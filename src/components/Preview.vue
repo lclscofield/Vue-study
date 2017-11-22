@@ -1,6 +1,6 @@
 <template>
   <div id="preview">
-    {{hahaha}}
+    {{hahaha.message}}
   </div>
 </template>
 
@@ -8,7 +8,7 @@
 export default {
   data() {
     return {
-      hahaha: ''
+      hahaha: {}
     }
   },
   created() {
