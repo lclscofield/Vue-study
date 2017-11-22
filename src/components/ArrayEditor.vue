@@ -4,11 +4,11 @@
     <div class="work">
       <el-form v-for="(item, index) in items" :key="index">
         <el-form-item :label="labels[key]" v-for="(key, index) in keys1" :key="index">
-          <el-input v-model="item[0][key]"></el-input>
+          <el-input v-model="item[0][key]" @input="shareData"></el-input>
         </el-form-item>
         <div v-if="item[1]">
           <el-form-item :label="labels[key]" v-for="(key, index) in keys2" :key="index">
-            <el-input type="textarea" :rows="5" v-model="item[1][key]"></el-input>
+            <el-input type="textarea" :rows="5" v-model="item[1][key]" @input="shareData"></el-input>
           </el-form-item>
         </div>
         <i v-if="seen" class="el-icon-circle-close-outline" @click="removeitems(index)"></i>
@@ -46,6 +46,9 @@ export default {
     },
     removeitems(index) {
       this.items.splice(index, 1)
+    },
+    shareData() {
+      this.$root.bus.$emit('shareData', this.items)
     }
   }
 }

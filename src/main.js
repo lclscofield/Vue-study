@@ -17,5 +17,8 @@ new Vue({
   template: '<App/>',
   components: {
     App
+  },
+  data: {
+    bus: new Vue()
   }
 })
