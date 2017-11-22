@@ -11,7 +11,7 @@
     </nav>
     <ol class="panes">
       <li :class="{active: currentTab === 0}">
-        <ArrayEditor :items="shareData.message" @touchShareData="emitShareData" :title="'个人信息'" :labels="{name: '名字', birth: '出身年月', city: '城市'}" :seen="false"></ArrayEditor>
+        <ArrayEditor :items="shareData.message" :title="'个人信息'" :labels="{name: '名字', birth: '出身年月', city: '城市'}" :seen="false"></ArrayEditor>
       </li>
       <li :class="{active: currentTab === 1}">
         <ArrayEditor :items="shareData.workHistory" :title="'工作经历'" :labels="{company:'公司', content:'工作内容'}" :seen="true"></ArrayEditor>
@@ -57,10 +57,8 @@ export default {
       }
     }
   },
-  methods: {
-    emitShareData() {
-      this.$root.bus.$emit('shareData', this.shareData)
-    }
+  mounted() {
+    this.$root.bus.$emit('shareData', this.shareData)
   }
 }
 </script>

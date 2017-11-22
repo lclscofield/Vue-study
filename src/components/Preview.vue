@@ -1,6 +1,6 @@
 <template>
   <div id="preview">
-    {{hahaha.message}}
+    {{hahaha}}
   </div>
 </template>
 
