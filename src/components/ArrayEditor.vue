@@ -63,6 +63,11 @@ export default {
         cursor: pointer;
       }
     }
+    > .el-form:first-child {
+      > .el-icon-circle-close-outline {
+        display: none;
+      }
+    }
     > .el-button {
       margin: 10px;
     }
