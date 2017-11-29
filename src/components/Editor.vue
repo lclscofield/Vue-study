@@ -23,7 +23,7 @@
         <ArrayEditor :items="shareData.projects" :title="'项目经历'" :labels="{name:'项目名称', content:'项目内容'}" :seen="true"></ArrayEditor>
       </li>
       <li :class="{active: currentTab === 4}">
-        <ArrayEditor :items="shareData.awards" :title="'获奖情况'" :labels="{name:'获奖详情'}" :seen="true"></ArrayEditor>
+        <ArrayEditor :items="shareData.awards" :title="'获奖情况'" :labels="{content:'获奖详情'}" :seen="true"></ArrayEditor>
       </li>
       <li :class="{active: currentTab === 5}">
         <ArrayEditor :items="shareData.call" :title="'联系方式'" :labels="{phone:'电话', qq:'QQ', email:'邮件'}" :seen="false"></ArrayEditor>
@@ -52,7 +52,7 @@ export default {
         workHistory: [[{ company: '' }, { content: '' }]],
         studyHistory: [[{ school: '', duration: '', degree: '' }]],
         projects: [[{ name: '' }, { content: '' }]],
-        awards: [[{}, { name: '' }]],
+        awards: [[{}, { content: '' }]],
         call: [[{ phone: '', qq: '', email: '' }]]
       }
     }
